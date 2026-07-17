@@ -5,11 +5,10 @@ using namespace std;
 
 int main()
 {
-    Coffee coffee;
 
-    coffee.setName("Vanilla Latte");
+    Coffee iced ("Vanilla Latte","Brazil",9,"Sweet and creamy");
 
-    cout << coffee.getName() << '\n';
+    iced.printInfo();
 
     return 0;
 }

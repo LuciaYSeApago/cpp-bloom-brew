@@ -1,7 +1,9 @@
+#include <iostream>
 #include "coffee.hpp"
 
 using namespace std;
 
+//default constructor (empty)
 Coffee::Coffee()
 {
     NAME = "";
@@ -9,6 +11,27 @@ Coffee::Coffee()
     RATING = 0;
     NOTES = "";
 }
+
+//parameterized constructor
+
+/* This version: Creates the obj + NAME, ORIGIN, NOTES are created empty + we write in them
+
+Coffee::Coffee(const string& NAME,const string& ORIGIN, int RATING, const string& NOTES)
+{
+    this -> NAME = NAME;
+    this -> ORIGIN = ORIGIN;
+    this -> RATING = RATING;
+    this -> NOTES = NOTES;
+} */
+
+//This version: Creates the obj + NAME, ORIGIN, RATING, NOTES are created with the correct value
+
+Coffee::Coffee(const string& NAME,const string& ORIGIN,int RATING,const string& NOTES)
+    : NAME(NAME),
+      ORIGIN(ORIGIN),
+      RATING(RATING),
+      NOTES(NOTES)
+{}
 
 void Coffee::setName(const string& NAME)
 {
@@ -49,4 +72,14 @@ void Coffee::setNotes(const string& NOTES)
 string Coffee::getNotes() const
 {
     return NOTES;
+}
+
+void Coffee::printInfo() const
+{
+    //we dont need to use gets because we're working on the class itself
+    cout << "☕ Coffee\n";
+    cout << "Name   : " << NAME << '\n';
+    cout << "Origin : " << ORIGIN << '\n';
+    cout << "Rating : " << RATING << "/10\n";
+    cout << "Notes  : " << NOTES << "\n\n";
 }

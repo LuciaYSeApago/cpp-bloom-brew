@@ -11,9 +11,20 @@ private:
     int RATING;
     std::string NOTES;
 
+    
+
 //encapsulation (only the same class can change things, we have to use setters & getters)
 public:
+    //default constructor (empty)
     Coffee();
+
+    //parameterized constructor
+    Coffee(
+        const std::string& NAME,
+        const std::string& ORIGIN,
+        int RATING,
+        const std::string& NOTES
+    );
 
     void setName(const std::string& NAME);
     std::string getName() const;
@@ -26,4 +37,7 @@ public:
 
     void setNotes(const std::string& NOTES);
     std::string getNotes() const;
+
+    void printInfo()const;
 };
+

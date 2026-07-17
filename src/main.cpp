@@ -1,8 +1,15 @@
 #include <iostream>
+#include "coffee.hpp"
+
 using namespace std;
 
 int main()
 {
-    cout << "🌸 Welcome to BloomCode!" << endl;
+    Coffee coffee;
+
+    coffee.setName("Vanilla Latte");
+
+    cout << coffee.getName() << '\n';
+
     return 0;
 }

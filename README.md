@@ -1,8 +1,8 @@
 <div align="center">
 
-<h1>🌸 BloomCode Readme Template 🌸</h1>
+<h1>🌸 BloomCode BloomBrew 🌸</h1>
 
-<p><em>🌸 Structure to follow when creating a project. 🌸</em></p>
+<p><em>🌸 A cozy terminal coffee tracker built with Modern C++. 🌸</em></p>
 
 </div>
 
@@ -10,7 +10,7 @@
 
 <div align="center">
 
-# ⌞📎⌝ Project Name
+# ⌞📎⌝ BloomBrew
 
 ### Category Symbol • Modern C++ • BloomCode
 

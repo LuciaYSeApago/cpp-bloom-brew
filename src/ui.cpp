@@ -20,8 +20,10 @@ int showMainMenu()
 {
     int option;
 
-    cout << "1. ☕ Add Coffee\n";
-    cout << "2. 🚪 Exit\n\n";
+    cout 
+        << "1. ☕ Add Coffee\n"
+        << "2. 🤎 Show Coffees\n"
+        << "3. 🚪 Exit\n\n";
 
     cout << "> ";
     cin >> option;

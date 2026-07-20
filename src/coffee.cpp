@@ -33,6 +33,18 @@ Coffee::Coffee(const string& NAME,const string& ORIGIN,int RATING,const string& 
       NOTES(NOTES)
 {}
 
+//------------------------------------------------------------------
+
+void Coffee::printInfo() const
+{
+    //we dont need to use gets because we're working on the class itself
+    cout << "☕ Coffee\n";
+    cout << "Name   : " << NAME << '\n';
+    cout << "Origin : " << ORIGIN << '\n';
+    cout << "Rating : " << RATING << "/10\n";
+    cout << "Notes  : " << NOTES << "\n\n";
+}
+
 void Coffee::setName(const string& NAME)
 {
     //this means that whatever were using is withing THIS object)
@@ -72,14 +84,4 @@ void Coffee::setNotes(const string& NOTES)
 string Coffee::getNotes() const
 {
     return NOTES;
-}
-
-void Coffee::printInfo() const
-{
-    //we dont need to use gets because we're working on the class itself
-    cout << "☕ Coffee\n";
-    cout << "Name   : " << NAME << '\n';
-    cout << "Origin : " << ORIGIN << '\n';
-    cout << "Rating : " << RATING << "/10\n";
-    cout << "Notes  : " << NOTES << "\n\n";
 }

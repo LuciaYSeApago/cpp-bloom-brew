@@ -1,12 +1,15 @@
 #include <iostream>
 #include "coffee.hpp"
 #include "ui.hpp"
+#include "coffee-manager.hpp"
 
 using namespace std;
 
 int main()
 {
     bool playing = true;
+
+    CoffeeManager manager;
 
     while(playing)
     {
@@ -23,34 +26,7 @@ int main()
         {
             case 1:
             {
-                Coffee coffee;
-
-                string NAME;
-                string ORIGIN;
-                int RATING;
-                string NOTES;
-
-                cout << "Coffee name: ";
-                getline(cin, NAME);
-
-                cout << "Origin: ";
-                getline(cin, ORIGIN);
-
-                cout << "Rating: ";
-                cin >> RATING;
-                cin.ignore();
-
-                cout << "Notes: ";
-                getline(cin, NOTES);
-
-                coffee.setName(NAME);
-                coffee.setOrigin(ORIGIN);
-                coffee.setRating(RATING);
-                coffee.setNotes(NOTES);
-
-                cout << "\nCoffee added!\n\n";
-
-                coffee.printInfo();
+                manager.makeCoffee();
 
                 cout << "Press ENTER...";
                 cin.get();
@@ -59,9 +35,20 @@ int main()
             }    
             case 2:
             {
+                manager.listCoffees();
+
+                cout << "\nPress ENTER...";
+                cin.get();
+
+                
+
+                break;
+            }
+            case 3:
+            {
                 playing = false;
                 break;
-            }    
+            }        
         }
     }
 

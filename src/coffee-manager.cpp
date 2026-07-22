@@ -1,6 +1,11 @@
 #include "coffee-manager.hpp"
+#include "colors.hpp"
 
 #include <iostream>
+#include <string>
+//for reading from a string
+#include <sstream>
+#include <limits>
 
 using namespace std;
 
@@ -10,23 +15,38 @@ void CoffeeManager::addCoffee(const Coffee& coffee)
     coffees.push_back(coffee);
 }
 
-void CoffeeManager::listCoffees() const
+void CoffeeManager::listCoffees()
 {
 
     if (coffees.empty())
     {
-        cout << "No coffees saved yet.\n";
+        cout
+             << Color::MINT
+             << "🥨 Your coffee shelf is empty.\n"
+             << "Time to brew your first coffee!\n"
+             << Color::RESET;
         return;
     }
 
-    cout << "🍪 Your Coffees\n\n";
+    cout 
+         << Color::LILAC
+         << "🍪 Your Coffee Collection\n\n"
+         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
+         << Color::RESET;
 
     //for (int i = 0; i < coffees.size(); i++) ("go through the coffee vector")    
     //for (const Coffee& coffee : coffees)
     for (size_t i = 0; i < coffees.size(); i++)
     {
-        cout << i + 1 << ". " << coffees[i].getName() << "\n";
+        cout 
+            << Color::CREAM
+            << i + 1 << ". ☕ "
+            << coffees[i].getName() 
+            << "\n"
+            << Color::RESET;
     }     
+
+    
 }
 
 void CoffeeManager::makeCoffee()
@@ -36,44 +56,134 @@ void CoffeeManager::makeCoffee()
     int coffeeRating;
     string coffeeNotes;
 
-    cout << "Coffee name: ";
+    cout 
+         << Color::PINK 
+         << "Coffee name: " 
+         << Color::RESET;
     getline(cin, coffeeName);
 
-    cout << "Origin: ";
+    cout 
+         << Color::PINK 
+         << "Origin: " 
+         << Color::RESET;
     getline(cin, coffeeOrigin);
 
-    cout << "Rating: ";
+    cout 
+         << Color::PINK 
+         << "Rating: " 
+         << Color::RESET;
     cin >> coffeeRating;
     cin.ignore();
 
-    cout << "Notes: ";
+    cout 
+         << Color::PINK 
+         << "Notes: " 
+         << Color::RESET;
     getline(cin, coffeeNotes);
 
     Coffee coffee(coffeeName, coffeeOrigin, coffeeRating, coffeeNotes);
 
     this -> addCoffee(coffee);
-    cout << "\nCoffee added!\n\n";
+    this -> saveCoffees();
 
-    coffee.printInfo();
+    cout
+         << "\n"
+         << Color::PINK
+         << "\n🥐 Coffee added to your collection!\n\n"
+         << Color::RESET;
+
+    printCoffeeCard(coffee);
 }
 
 void CoffeeManager::viewCoffee()
 {
+    int optionCoffee;
 
-    int option;
+    //this -> listCoffees();
 
-    this -> listCoffees();
-
-    cout << "\nChoose a coffee: \n";
-    cout << " > \n\n";
-    cin >> option;
-
-    if (option < 1 || option > coffees.size())
+    if (coffees.empty())
     {
-        cout << "Invalid option.\n";
+        cout << "🥨 Your coffee shelf is empty.\n\n";
         return;
     }
 
-    coffees[option - 1].printInfo();
+    cout <<"\n Do you want to see more info? [y/n]\n";
+    
 
+    char seeMore;
+    cin >> seeMore;
+
+    if (seeMore == 'y')
+    {
+        cout << "\nSelect the coffee: \n"
+        << " > \n\n";
+        cin >> optionCoffee;
+
+        if (optionCoffee < 1 || optionCoffee > coffees.size())
+        {
+            cout << "Invalid option. Please try again.\n";
+            return;
+        }
+
+        printCoffeeCard(coffees[optionCoffee - 1]);
+    }
+
+}
+
+void CoffeeManager::saveCoffees() const
+{
+    cout << "☕ Saving your coffee collection...\n";
+    //output file. Tries to open, if not possible, creates the file
+    std::ofstream file("coffees.txt");
+
+    if (!file)
+    {
+        std::cout << "Couldn't open file.\n";
+        return;
+    }
+
+    for (const Coffee& coffee : coffees)
+    {
+        //; separates values for easy reading
+        file << coffee.getName() << ";"
+         << coffee.getOrigin() << ";"
+         << coffee.getRating() << ";"
+         << coffee.getNotes() << "\n";
+    }
+}
+
+void CoffeeManager::loadCoffee()
+{
+    std::ifstream file("coffees.txt");
+    
+    if (!file)
+    {
+        return;
+    }
+
+    string line;
+
+    //each time a new coffee
+    while (std::getline(file, line))
+    {
+        //fill line with data
+        std::stringstream ss(line);
+
+        string name;
+        string origin;
+        string ratingString;
+        string notes;
+
+        //this getline uses ; as a limit 
+        getline(ss, name, ';');
+        getline(ss, origin, ';');
+        getline(ss, ratingString, ';');
+        getline(ss, notes);
+
+        //the constructor uses int for rating, we have to change it 
+        int rating = stoi(ratingString);
+
+        Coffee coffee(name, origin, rating, notes);
+        addCoffee(coffee);
+    }
 }

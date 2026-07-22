@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "coffee.hpp"
 #include "ui.hpp"
 #include "coffee-manager.hpp"
@@ -10,6 +11,8 @@ int main()
     bool playing = true;
 
     CoffeeManager manager;
+
+    manager.loadCoffee();
 
     while(playing)
     {
@@ -36,12 +39,8 @@ int main()
             case 2:
             {
                 manager.listCoffees();
-
-                cout << "\nPress ENTER...";
-                cin.get();
-
+                manager.viewCoffee();
                 
-
                 break;
             }
             case 3:

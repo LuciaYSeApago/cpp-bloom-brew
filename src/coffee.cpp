@@ -1,5 +1,7 @@
 #include <iostream>
+
 #include "coffee.hpp"
+#include "colors.hpp"
 
 using namespace std;
 
@@ -35,15 +37,6 @@ Coffee::Coffee(const string& NAME,const string& ORIGIN,int RATING,const string& 
 
 //------------------------------------------------------------------
 
-void Coffee::printInfo() const
-{
-    //we dont need to use gets because we're working on the class itself
-    cout << "☕ Coffee\n";
-    cout << "Name   : " << NAME << '\n';
-    cout << "Origin : " << ORIGIN << '\n';
-    cout << "Rating : " << RATING << "/10\n";
-    cout << "Notes  : " << NOTES << "\n\n";
-}
 
 void Coffee::setName(const string& NAME)
 {

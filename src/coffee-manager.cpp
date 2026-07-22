@@ -56,6 +56,8 @@ void CoffeeManager::makeCoffee()
     int coffeeRating;
     string coffeeNotes;
 
+    printCoffeeMachine();
+    
     cout 
          << Color::PINK 
          << "Coffee name: " 
@@ -89,7 +91,7 @@ void CoffeeManager::makeCoffee()
     cout
          << "\n"
          << Color::PINK
-         << "\n🥐 Coffee added to your collection!\n\n"
+         << "\n☕ Coffee added to your collection!\n\n"
          << Color::RESET;
 
     printCoffeeCard(coffee);
@@ -103,11 +105,17 @@ void CoffeeManager::viewCoffee()
 
     if (coffees.empty())
     {
-        cout << "🥨 Your coffee shelf is empty.\n\n";
+        cout 
+             << Color::MINT
+             << "🥨 Your coffee shelf is empty.\n\n"
+             << Color::RESET;
         return;
     }
 
-    cout <<"\n Do you want to see more info? [y/n]\n";
+    cout 
+         << Color::PINK
+         <<"\n Do you want to see more info? [y/n]\n"
+         << Color::RESET;
     
 
     char seeMore;
@@ -115,13 +123,19 @@ void CoffeeManager::viewCoffee()
 
     if (seeMore == 'y')
     {
-        cout << "\nSelect the coffee: \n"
-        << " > \n\n";
+        cout 
+             << Color::PINK
+             << "\nSelect the coffee: \n"
+             << " > \n\n"
+             << Color::RESET;
         cin >> optionCoffee;
 
         if (optionCoffee < 1 || optionCoffee > coffees.size())
         {
-            cout << "Invalid option. Please try again.\n";
+            cout 
+                 << Color::MINT
+                 << "Invalid option. Please try again.\n"
+                 << Color::RESET;
             return;
         }
 
@@ -132,13 +146,19 @@ void CoffeeManager::viewCoffee()
 
 void CoffeeManager::saveCoffees() const
 {
-    cout << "☕ Saving your coffee collection...\n";
+    cout 
+         << Color::PINK
+         << "☕ Saving your coffee collection...\n"
+         << Color::RESET;
     //output file. Tries to open, if not possible, creates the file
     std::ofstream file("coffees.txt");
 
     if (!file)
     {
-        std::cout << "Couldn't open file.\n";
+        cout 
+             << Color::MINT
+             << "Couldn't open file.\n"
+             << Color::RESET;
         return;
     }
 

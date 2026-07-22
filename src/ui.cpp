@@ -4,11 +4,14 @@
 
 #include "colors.hpp"
 #include "ui.hpp"
+#include "ascii.hpp"
 
 using namespace std;
 
 void printHeader()
 {
+    printCoffeeCup();
+    
     cout
         << Color::PINK
         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
@@ -60,7 +63,7 @@ string ratingToStars(int rating)
     return stars;
 }
 
-void printCoffeeCard (const Coffe&)
+void printCoffeeCard (const Coffee& coffee)
 {
     
     
@@ -73,10 +76,10 @@ void printCoffeeCard (const Coffe&)
          
     cout
          << Color::CREAM
-         << "🤎 Name : " << coffee.getName() << "\n"
-         << "🧸 Origin : " << coffee.getOrigin() << "\n"
-         << "⭐ Rating : " << ratingToStars(coffee.getRating()) << "\n"
-         << "📜 Notes : " << coffee.getNotes() << "\n\n"
+         << "🤎 Name    : " << coffee.getName() << "\n"
+         << "🧸 Origin  : " << coffee.getOrigin() << "\n"
+         << "⭐ Rating  : " << ratingToStars(coffee.getRating()) << "\n"
+         << "📜 Notes   : " << coffee.getNotes() << "\n\n"
          << Color::RESET;
 
 }

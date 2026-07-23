@@ -1,8 +1,8 @@
 <div align="center">
 
-<h1>🌸 BloomCode BloomBrew 🌸</h1>
+<h1>🌸 BloomCode BloomBrew README🌸</h1>
 
-<p><em>🌸 A cozy terminal coffee tracker built with Modern C++. 🌸</em></p>
+<p><em>🌸 Second project of the BloomCode collection. 🌸</em></p>
 
 </div>
 
@@ -12,9 +12,9 @@
 
 # ⌞📎⌝ BloomBrew
 
-### Category Symbol • Modern C++ • BloomCode
+### • Modern C++ • BloomCode
 
-*One sentence describing the project.*
+*A cozy terminal coffee tracker built with Modern C++.*
 
 Part of the **🌸 BloomCode** collection.
 
@@ -28,44 +28,87 @@ Part of the **🌸 BloomCode** collection.
 | **Build System** | CMake |
 | **Platform** | Linux / WSL |
 | **Difficulty** | ⭐ Beginner |
-| **Status** | 🌱 In Progress |
+| **Status** | ✅ Complete (v1.0) |
 
 ---
 
-# 🌸 About
+## 🌸 About
 
-Describe the project in one or two paragraphs.
+BloomBrew is a cozy terminal application written in Modern C++ that lets you build your own personal coffee journal.
 
-Explain:
+The project was created as a beginner-friendly exercise to practice the fundamentals of C++ while building a polished console application that persists data between sessions.
 
-- Why you built it.
-- What problem it solves.
-- What you wanted to learn.
-
+During development I focused on working with object-oriented programming, file handling, modular project architecture, and creating a cozy user experience through ANSI colors, ASCII art, animations and clean terminal menus.
 ---
 
-## 🧠 Concepts Practiced
+## 🎨 Color Palette
 
-- Concept
-- Concept
-- Concept
-- Concept
+<p align="center">
+
+| Role    | Color                                                                                                             |
+|---------|-------------------------------------------------------------------------------------------------------------------|
+| Header  | <span style="display:inline-block;width:20px;height:20px;background:#FF9FCF;border-radius:4px;"></span> `#FF9FCF` |
+| Menus   | <span style="display:inline-block;width:20px;height:20px;background:#C8A2FF;border-radius:4px;"></span> `#C8A2FF` |
+| Success | <span style="display:inline-block;width:20px;height:20px;background:#A8E6CF;border-radius:4px;"></span> `#A8E6CF` |
+| Options | <span style="display:inline-block;width:20px;height:20px;background:#FFF6E5;border-radius:4px;"></span> `#FFF6E5` |
+
+</div>
+---
+
+## 🌻 Concepts Practiced
+
+- Classes and Object-Oriented Programming (OOP)
+- Constructors and member initializer lists
+- Encapsulation (getters & setters)
+- std::vector
+- File I/O (ifstream / ofstream)
+- String parsing with std::stringstream
+- Modular project architecture
+- Header/source file organization
+- CMake build system
+- Terminal UI design
+
+- C++23
+- STL
+- CMake
+- File Streams
+- String Streams
+- ANSI Escape Codes
 
 ---
 
 ## ⌞📃⌝ Features
 
-- ✨ Feature
-- ✨ Feature
-- ✨ Feature
+- ☕ Add coffees
+- 🤎 Browse your coffee collection
+- ☕ Star ratings
+- 🤎 Personal tasting notes
+- ☕ Automatic save/load
+- 🤎 Cozy terminal UI
+- ☕ Cute ASCII art
+- 🤎 Brewing animation
 
 ---
 
-## ⌞📸⌝ Preview
-
 <p align="center">
 
-<img src="screenshots/main-menu.png" width="700"/>
+## ⌞📸⌝ Preview
+
+### Main Menu
+
+<img src="screenshots/MainMenu.jpeg" width="700"/>
+
+### Add Coffee
+
+<img src="screenshots/AddCoffee.jpeg" width="700"/>
+
+### BrewingAnimation
+
+<img src="screenshots/BrewingAnimation.jpeg" width="700"/>
+
+### CoffeeCard
+
+<img src="screenshots/CoffeeCard.jpeg" width="700"/>
 
 </p>
 
@@ -82,7 +125,7 @@ Explain:
 ### Clone
 
 ```bash
-git clone https://github.com/LuciaYSeApago/project-name.git
+git clone https://github.com/LuciaYSeApago/cpp-bloom-brew.git
 ```
 
 ### Build
@@ -124,9 +167,13 @@ project-name/
 
 ## ⌞🚀⌝ Future Ideas
 
-- [ ] Feature
-- [ ] Feature
-- [ ] Feature
+- [ ] Edit existing coffees
+- [ ] Delete coffees
+- [ ] Search by name
+- [ ] Filter by origin
+- [ ] Sort by rating
+- [ ] Mark favorite coffees
+- [ ] Export collection
 
 ---
 
@@ -141,7 +188,6 @@ This project follows the BloomCode Design System.
 - 🎮 Playful
 - 💻 Modern C++
 
-Every project shares the same folder structure, documentation style, visual language and coding philosophy to create a cohesive learning collection.
 
 ---
 

@@ -1,5 +1,6 @@
 #include "coffee-manager.hpp"
 #include "colors.hpp"
+#include "ascii.hpp"
 
 #include <iostream>
 #include <string>
@@ -28,11 +29,11 @@ void CoffeeManager::listCoffees()
         return;
     }
 
-    cout 
-         << Color::LILAC
-         << "🍪 Your Coffee Collection\n\n"
-         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
-         << Color::RESET;
+    cout << Color::LILAC;
+    cout << "🍪 Your Coffee Collection\n\n";
+    printCoffeeShelf();
+    cout << "\n\n";
+    cout << Color::RESET;
 
     //for (int i = 0; i < coffees.size(); i++) ("go through the coffee vector")    
     //for (const Coffee& coffee : coffees)

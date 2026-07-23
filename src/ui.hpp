@@ -1,18 +1,19 @@
 # pragma once
+#include <string>
 #include "coffee.hpp"
 
 void printHeader();
 
-int showMainMenu();
-
-void clearScreen();
-
-void printCoffeeMachine();
-
 void printCoffeeCard(const Coffee& coffee);
 
-void printEmptyCollection();
+int showMainMenu();
 
-void printSuccessMessage();
+void showMainScreen();
 
-string ratingToStars(int rating);
+void showBrewingScreen();
+
+void showGoodbyeScreen();
+
+std::string ratingToStars(int rating);
+
+void clearScreen();

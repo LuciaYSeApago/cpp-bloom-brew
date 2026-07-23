@@ -4,6 +4,7 @@
 //library that works with docs
 #include <fstream>
 #include "coffee.hpp"
+#include "ui.hpp"
 
 class CoffeeManager
 {

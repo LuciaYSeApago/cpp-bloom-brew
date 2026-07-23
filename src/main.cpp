@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <limits>
 #include "coffee.hpp"
 #include "ui.hpp"
@@ -18,7 +19,7 @@ int main()
     {
         clearScreen();
 
-        printHeader();
+        showMainScreen();
 
         int selection = showMainMenu();
 
@@ -45,6 +46,7 @@ int main()
             }
             case 3:
             {
+                showGoodbyeScreen();
                 playing = false;
                 break;
             }        

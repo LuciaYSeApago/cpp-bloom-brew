@@ -10,6 +10,7 @@ add_executable(${PROJECT_NAME}
     src/coffee.cpp
     src/ui.cpp
     src/coffee-manager.cpp
+    src/ascii.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)

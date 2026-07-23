@@ -7,27 +7,28 @@ using namespace std;
 
 void printCoffeeCup()
 {
-    cout
-         << Color::LILAC
+    cout << Color::LILAC;
 
-         //with the R"()" serves as lots of <<"\n"
-         R"(    )))
-                (((
-              +-----+
-              |     |]
-              `-----'
-            ___________
-            `---------'  )"
+    cout << R"(
 
-         << Color::RESET;
+             )))
+            (((
+         +-----+
+         |     |]
+         `-----'
+       ___________
+       `---------'
+
+)";
+
+    cout << Color::RESET;
 }
 
 void printCoffeeMachine()
 {
-    cout
-         << Color::LILAC
+    cout << Color::LILAC;
 
-         R"(
+    cout << R"(
                /~~~~~~~~/ |
               / /######/ / |
              / /______/ /  |
@@ -41,15 +42,14 @@ void printCoffeeMachine()
             | |        | | /
             |__\______/__|/
             ~~~~~~~~~~~~~~ 
-            )"
-         << Color::RESET;
+            )";
+    cout << Color::RESET;
 }
 
 void printCoffeeShelf()
 {
-    cout 
-         << Color::LILAC
-         R"( 
+    cout << Color::LILAC;
+    cout << R"( 
                .-=-.   .-=-.   .-=-.   .-=-.   .-=-.   .-=-.
               ,|`~'|  ,|`~'|  ,|`~'|  ,|`~'|  ,|`~'|  ,|`~'|
               `|   |  `|   |  `|   |  `|   |  `|   |  `|   |
@@ -57,20 +57,22 @@ void printCoffeeShelf()
              -------------------------------------------------
             │                                                 │
              -------------------------------------------------  
-             )"
+             )";
+    cout << Color::RESET;
 }
 
-void printGoodbye(
-    {
-        R"(
-            ( (
-              ) )
+void printGoodbye()
+{
+    cout << Color::LILAC;
+    cout << R"(
+             ( (
+               ) )
             ........
             |      |]
             \      /
              `----'
-             
-        See you next cup! ☕🌸
-        )"
-    }
-)
+        
+         See you next Cup !
+            )";
+    cout << Color::RESET;
+}

@@ -56,7 +56,6 @@ void CoffeeManager::makeCoffee()
     int coffeeRating;
     string coffeeNotes;
 
-    printCoffeeMachine();
     
     cout 
          << Color::PINK 
@@ -88,11 +87,7 @@ void CoffeeManager::makeCoffee()
     this -> addCoffee(coffee);
     this -> saveCoffees();
 
-    cout
-         << "\n"
-         << Color::PINK
-         << "\n☕ Coffee added to your collection!\n\n"
-         << Color::RESET;
+    showBrewingScreen();
 
     printCoffeeCard(coffee);
 }

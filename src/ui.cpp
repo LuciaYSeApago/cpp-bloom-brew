@@ -1,6 +1,10 @@
 #include <iostream>
+#include <string>
 //for the cleaning method
 #include <limits>
+#include <thread>
+#include <chrono>
+
 
 #include "colors.hpp"
 #include "ui.hpp"
@@ -10,7 +14,6 @@ using namespace std;
 
 void printHeader()
 {
-    printCoffeeCup();
     
     cout
         << Color::PINK
@@ -19,6 +22,27 @@ void printHeader()
         << "               ݁₊ ⊹🌸⊹ ₊ ݁\n\n"
         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
         << Color::RESET;
+
+}
+
+void printCoffeeCard (const Coffee& coffee)
+{
+    
+    
+    cout 
+         << Color::PINK
+         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
+         << "        ☕ " << coffee.getName() << "\n\n"
+         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
+         << Color::RESET;
+         
+    cout
+         << Color::CREAM
+         << "🤎 Name    : " << coffee.getName() << "\n"
+         << "🧸 Origin  : " << coffee.getOrigin() << "\n"
+         << "⭐ Rating  : " << ratingToStars(coffee.getRating()) << "\n"
+         << "📜 Notes   : " << coffee.getNotes() << "\n\n"
+         << Color::RESET;
 
 }
 
@@ -41,9 +65,61 @@ int showMainMenu()
     return option;
     
 }
-void clearScreen()
+
+void showMainScreen()
 {
-    cout << "\033[2J\033[H";
+    clearScreen();
+
+    printCoffeeCup();
+
+    printHeader();
+}
+
+void showBrewingScreen()
+{
+
+    using namespace std::chrono_literals;
+    for (int progress =  0; progress <= 5; progress++)
+    {
+        clearScreen();
+        printCoffeeMachine();
+        
+        cout
+             << Color::PINK
+             << "\n☕ Brewing your coffee...\n"
+             << Color::RESET;
+
+        cout << Color::CREAM;
+
+        for(int i = 0; i  < progress; i++)
+        {
+            cout << "■ ";
+        }
+        for (int i = progress; i < 5; i++)
+        {
+            cout << "▱ ";
+        }
+
+        cout << Color::RESET << "\n";
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    }
+
+    cout << "\n"
+         << Color::PINK
+         << "\n☕ Coffee added to your collection!\n\n"
+         << Color::RESET;
+
+    std::this_thread::sleep_for(700ms);
+
+}
+
+void showGoodbyeScreen()
+{
+    clearScreen();
+
+    printGoodbye();
+
 }
 
 string ratingToStars(int rating)
@@ -63,23 +139,7 @@ string ratingToStars(int rating)
     return stars;
 }
 
-void printCoffeeCard (const Coffee& coffee)
+void clearScreen()
 {
-    
-    
-    cout 
-         << Color::PINK
-         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
-         << "            °☆𝙲𝚘𝚏𝚏𝚎★ ☕️✨️\n"
-         << "✿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✿\n\n"
-         << Color::RESET;
-         
-    cout
-         << Color::CREAM
-         << "🤎 Name    : " << coffee.getName() << "\n"
-         << "🧸 Origin  : " << coffee.getOrigin() << "\n"
-         << "⭐ Rating  : " << ratingToStars(coffee.getRating()) << "\n"
-         << "📜 Notes   : " << coffee.getNotes() << "\n\n"
-         << Color::RESET;
-
+    cout << "\033[2J\033[H";
 }
